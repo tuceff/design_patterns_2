@@ -342,17 +342,23 @@ Bakımı imkansız hale gelir.
 ✅ Çözüm Örüntüsü
 Plugin Architecture
 Strategy + Factory
+
+
+
 ⭐ Kullanılabilecek En Uygun Tasarım Örüntüleri
-Örüntü	Ne İçin Kullanılır
-Strategy Pattern	Algoritmaları runtime’da değiştirmek
-Factory Method	Algoritma nesnesi üretmek
-Dependency Injection	Sıkı bağımlılığı azaltmak
-Facade Pattern	Kullanıcıya sade API sunmak
-Template Method	Ortak akışları merkezileştirmek
-Singleton	Anahtar yöneticisi için
-Bridge Pattern	Şifreleme türlerini ayırmak
-Provider Pattern	Key management için
-Abstract Factory	Algoritma aileleri üretmek
+
+    Örüntü	                        Ne İçin Kullanılır
+Strategy Pattern	        Algoritmaları runtime’da değiştirmek
+Factory Method	            Algoritma nesnesi üretmek
+Dependency Injection	    Sıkı bağımlılığı azaltmak
+Facade Pattern	            Kullanıcıya sade API sunmak
+Template Method	            Ortak akışları merkezileştirmek
+Singleton	                Anahtar yöneticisi için
+Bridge Pattern	            Şifreleme türlerini ayırmak
+Provider Pattern	        Key management için
+Abstract Factory	        Algoritma aileleri üretmek
+
+
 ⭐ Bu Kodun En Büyük Tasarım Problemi
 
 En büyük problem:
@@ -374,3 +380,21 @@ Bu yapı için en doğru temel çözüm:
 ✅ Strategy Pattern + Factory Pattern
 
 kombinasyonudur.
+
+
+# AI ve Benim yazdığım problemlerin farkları-ortak noktaları:
+    Genel olarak en büyük sorunları yazdım. AI da benim yazdıklarıma çok benzer şeylerin yanı sıra bazı eklemeler de yaptı. 
+    AI 'ın yaptığı eklemeler:
+        4. Sıkı Bağımlılık (Tight Coupling)
+        6. Primitive Obsession
+        7. Kod Tekrarı (Duplication)
+        9. Güvenlik ve İş Mantığının Karışması
+        10. Sabit AES Anahtarı Kullanılması
+        11. RSA Anahtarlarının Constructor’da Oluşturulması
+        12. Base64’ün Şifreleme Gibi Sunulması
+        13. Hata Yönetimi Zayıf
+        15. Test Edilebilirliğin Düşük Olması
+        17. Anahtar Yönetimi ile Algoritma Mantığının Karışması
+        18. Magic Values Kullanımı
+        19. Interface Segregation Principle İhlali
+        20. Ölçeklenebilirlik Problemi
