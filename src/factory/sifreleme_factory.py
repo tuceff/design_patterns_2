@@ -12,7 +12,7 @@ from sifreleyiciler.base64_sifreleyici import (
 
 
 class SifrelemeFactory:
-
+    
     @staticmethod
     def sifreleyici_olustur(algoritma):
 

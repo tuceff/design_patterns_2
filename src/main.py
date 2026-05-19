@@ -3,7 +3,7 @@ from factory.sifreleme_factory import (
 )
 
 
-algoritma = "RSA"
+algoritma = "AES"  # "RSA" veya "BASE64" olarak değiştirilebilir
 
 sifreleyici = (
     SifrelemeFactory

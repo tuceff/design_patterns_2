@@ -9,7 +9,6 @@ class AESSifreleyici:
     def __init__(self):
 
         self.anahtar = b"1234567890123456"
-
     def sifrele(self, veri):
 
         iv = get_random_bytes(16)

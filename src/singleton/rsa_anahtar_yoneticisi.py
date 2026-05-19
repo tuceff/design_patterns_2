@@ -17,5 +17,5 @@ class RSAAnahtarYoneticisi:
             cls._ornek.genel_anahtar = (
                 cls._ornek.ozel_anahtar.publickey()
             )
-
+            
         return cls._ornek

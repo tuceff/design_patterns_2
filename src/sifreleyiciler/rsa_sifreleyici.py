@@ -13,7 +13,7 @@ class RSASifreleyici:
         self.anahtar_yoneticisi = (
             RSAAnahtarYoneticisi()
         )
-
+        
     def sifrele(self, veri):
 
         sifreleyici = PKCS1_OAEP.new(
