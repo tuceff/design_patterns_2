@@ -1,67 +1,36 @@
 from facade.sifreleme_facade import SifrelemeFacade
-
 from factory.sifreleme_factory import SifrelemeFactory
-
-from strategy.sifreleme_baglam import (
-    SifrelemeBaglami
-)
-
+from strategy.sifreleme_baglam import SifrelemeBaglami
 from observer.olay_yayici import OlayYayici
 from observer.log_gozlemci import LogGozlemci
-from observer.zaman_gozlemci import (
-    ZamanGozlemci
-)
+from observer.zaman_gozlemci import ZamanGozlemci
 
 
-algoritma = "AES"
+def main() -> None:
+    algoritma: str = "AES"
+    metin: str = "Merhaba Dünya"
 
-metin = "Merhaba Dünya"
+    # Observer kurulumu
+    yayici = OlayYayici()
+    yayici.gozlemci_ekle(LogGozlemci())
+    yayici.gozlemci_ekle(ZamanGozlemci())
 
+    # Strategy + Factory kurulumu
+    sifreleyici = SifrelemeFactory.sifreleyici_olustur(algoritma)
+    baglam = SifrelemeBaglami(sifreleyici)
 
-# Observer
-yayici = OlayYayici()
+    yayici.bildir("Şifreleme işlemi başladı")
+    sifreli: str = baglam.sifrele(metin)
+    yayici.bildir("Şifreleme işlemi tamamlandı")
 
-yayici.gozlemci_ekle(
-    LogGozlemci()
-)
+    print(f"\nŞifreli Veri:\n{sifreli}")
 
-yayici.gozlemci_ekle(
-    ZamanGozlemci()
-)
+    yayici.bildir("Çözme işlemi başladı")
+    cozulmus: str = baglam.coz(sifreli)
+    yayici.bildir("Çözme işlemi tamamlandı")
 
-
-# Strategy
-sifreleyici = (
-    SifrelemeFactory
-    .sifreleyici_olustur(algoritma)
-)
-
-baglam = (
-    SifrelemeBaglami(sifreleyici)
-)
+    print(f"\nÇözülmüş Veri:\n{cozulmus}")
 
 
-yayici.bildir(
-    "Şifreleme işlemi başladı"
-)
-
-sifreli = (
-    baglam
-    .sifrele(metin)
-)
-
-yayici.bildir(
-    "Şifreleme işlemi tamamlandı"
-)
-
-print("\nŞifreli Veri:")
-print(sifreli)
-
-
-cozulmus = (
-    baglam
-    .coz(sifreli)
-)
-
-print("\nÇözülmüş Veri:")
-print(cozulmus)
+if __name__ == "__main__":
+    main()
