@@ -1,4 +1,4 @@
-## FAZ-1 UML Diagram
+## FAZ-2 UML Diagram
 
 ```mermaid
 classDiagram
