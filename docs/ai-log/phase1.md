@@ -1,7 +1,7 @@
 # Phase-1
 
 ## PROMPT:
-"Bu kodu gözden geçir. Hangi yaratımsal örüntü hataları var ve bunları çözmek için hangi yöntemleri kullanmalıyım."
+    "Bu kodu gözden geçir. Hangi yaratımsal örüntü hataları var ve bunları çözmek için hangi yöntemleri kullanmalıyım."
 
 ## AI cevabının özeti:
     Tasarımsal Problemler
