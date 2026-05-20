@@ -3,22 +3,14 @@ from decorators.sifreleyici_decorator import SifreleyiciDekorator
 
 class LogDekorator(SifreleyiciDekorator):
 
-    def sifrele(self, veri):
-
-        print("Şifreleme başladı")
-
-        sonuc = self.sifreleyici.sifrele(veri)
-
-        print("Şifreleme bitti")
-
+    def sifrele(self, veri: str) -> str:
+        print("[LOG] Şifreleme başladı")
+        sonuc = super().sifrele(veri)
+        print("[LOG] Şifreleme bitti")
         return sonuc
 
-    def coz(self, veri):
-
-        print("Çözme başladı")
-
-        sonuc = self.sifreleyici.coz(veri)
-
-        print("Çözme bitti")
-
+    def coz(self, veri: str) -> str:
+        print("[LOG] Çözme başladı")
+        sonuc = super().coz(veri)
+        print("[LOG] Çözme bitti")
         return sonuc

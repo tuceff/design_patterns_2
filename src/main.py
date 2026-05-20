@@ -1,21 +1,36 @@
 from facade.sifreleme_facade import SifrelemeFacade
+from factory.sifreleme_factory import SifrelemeFactory
+from strategy.sifreleme_baglam import SifrelemeBaglami
+from observer.olay_yayici import OlayYayici
+from observer.log_gozlemci import LogGozlemci
+from observer.zaman_gozlemci import ZamanGozlemci
 
 
-sistem = SifrelemeFacade()
+def main() -> None:
+    algoritma: str = "AES"
+    metin: str = "Merhaba Dünya"
 
-algoritma = "AES"  # "RSA" veya "BASE64"
+    # Observer kurulumu
+    yayici = OlayYayici()
+    yayici.gozlemci_ekle(LogGozlemci())
+    yayici.gozlemci_ekle(ZamanGozlemci())
 
-metin = "Merhaba Dünya"
+    # Strategy + Factory kurulumu
+    sifreleyici = SifrelemeFactory.sifreleyici_olustur(algoritma)
+    baglam = SifrelemeBaglami(sifreleyici)
 
-print("Aktif Algoritma:")
-print(algoritma)
+    yayici.bildir("Şifreleme işlemi başladı")
+    sifreli: str = baglam.sifrele(metin)
+    yayici.bildir("Şifreleme işlemi tamamlandı")
 
-sifreli = sistem.sifrele(algoritma, metin)
+    print(f"\nŞifreli Veri:\n{sifreli}")
 
-print("\nŞifreli Veri:")
-print(sifreli)
+    yayici.bildir("Çözme işlemi başladı")
+    cozulmus: str = baglam.coz(sifreli)
+    yayici.bildir("Çözme işlemi tamamlandı")
 
-cozulmus = sistem.coz(algoritma, sifreli)
+    print(f"\nÇözülmüş Veri:\n{cozulmus}")
 
-print("\nÇözülmüş Veri:")
-print(cozulmus)
+
+if __name__ == "__main__":
+    main()
