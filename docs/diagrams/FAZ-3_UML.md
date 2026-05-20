@@ -90,7 +90,7 @@ class Gozlemci {
     <<interface>>
     + guncelle(mesaj: str)
 }
-
+git
 class LogGozlemci {
     + guncelle(mesaj: str)
 }
