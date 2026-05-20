@@ -8,6 +8,7 @@ class Base64Sifreleyici:
         return base64.b64encode(
             veri.encode()
         ).decode()
+    
     def coz(self, sifreli_veri):
 
         return base64.b64decode(
