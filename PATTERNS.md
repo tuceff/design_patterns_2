@@ -46,3 +46,28 @@
 
 ### Ne Kazandırdı?
     Kullanım kolaylığı sağlandı, sistem tek bir sınıf üzerinden kontrol edilebilir hale geldi, bağımlılıklar azaldı ve kod okunabilirliği arttı. Kullanıcı artık alt sistemleri bilmeden şifreleme işlemini gerçekleştirebilir hale geldi.
+
+# Phase-3
+    Bu fazda sistemin davranışlarının daha esnek ve genişletilebilir hale gelmesi için Strategy ve Observer tasarım örüntüleri uygulanmıştır. Yeni davranışlar mevcut kod değiştirilmeden sisteme eklenebilir hale getirilmiştir.
+
+## Strategy Pattern
+
+### Nerede kullanıldı?
+    Strategy Pattern, sifreleme_baglam.py sınıfında farklı şifreleme algoritmalarını çalışma anında değiştirebilmek için kullanıldı.
+
+### Neden kullanıldı?
+    Sistemde farklı şifreleme algoritmalarının aynı yapı üzerinden yönetilmesi gerekiyordu. Algoritma davranışını doğrudan if-else yapılarıyla yönetmek kod bağımlılığını artıracaktı. Strategy Pattern sayesinde algoritmalar birbirinden bağımsız hale getirildi ve çalışma anında değiştirilebilir oldu.
+
+### Ne Kazandırdı?
+    Şifreleme algoritmaları birbirinden bağımsız hale geldi, çalışma anında algoritma değiştirme desteği sağlandı ve sistem OCP prensibine daha uygun hale geldi. Yeni algoritmalar mevcut kod değiştirilmeden sisteme eklenebilir hale geldi.
+
+## Observer Pattern
+
+### Nerede kullanıldı?
+    Observer Pattern, olay_yayici.py, log_gozlemci.py ve zaman_gozlemci.py sınıflarında şifreleme işlemleri sırasında oluşan olayları dinlemek için kullanıldı.
+
+### Neden kullanıldı?
+    Şifreleme işlemleri sırasında loglama, zaman bilgisi yazdırma veya farklı olay takibi işlemlerinin mevcut sistemi değiştirmeden eklenmesi istendi. Eğer bu davranışlar doğrudan şifreleme sınıflarına yazılsaydı sınıfların sorumluluğu artacak ve sistem daha bağımlı hale gelecekti. Observer Pattern sayesinde olaylar bağımsız gözlemciler üzerinden yönetildi.
+
+### Ne Kazandırdı?
+    Sisteme mevcut kod değiştirilmeden yeni davranışlar eklenebilir hale geldi. Loglama ve olay takibi şifreleme işlemlerinden ayrıldı, sistem daha esnek hale geldi ve OCP prensibi güçlendirildi.
